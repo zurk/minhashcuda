@@ -14,10 +14,10 @@ class CMakeBuild(build_py):
     def run(self):
         if not self.dry_run:
             self._build()
-        super(CMakeBuild, self).run()
+        super().run()
 
     def get_outputs(self, *args, **kwargs):
-        outputs = super(CMakeBuild, self).get_outputs(*args, **kwargs)
+        outputs = super().get_outputs(*args, **kwargs)
         outputs.extend(self._shared_lib)
         return outputs
 
@@ -46,7 +46,7 @@ class BinaryDistribution(Distribution):
 setup(
     name="libMHCUDA",
     description="Accelerated Weighted MinHash-ing on GPU",
-    version="2.0.1",
+    version="2.0.2",
     license="Apache Software License",
     author="Vadim Markovtsev",
     author_email="vadim@sourced.tech",
