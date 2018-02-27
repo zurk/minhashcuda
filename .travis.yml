@@ -14,7 +14,7 @@ env:
   - CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-8.0
 
 install:
-  - . .travis.setup
+  - . .travis.install
 
 script:
   - python3 setup.py bdist_wheel
@@ -23,7 +23,6 @@ script:
 jobs:
   include:
     - stage: build
-      after_script: skip
     - stage: deploy
       after_script:
         - twine upload dist/*manylinux* -u $PYPI_LOGIN -p $PYPI_PASS
