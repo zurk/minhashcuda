@@ -1,0 +1,6 @@
+#!/bin/sh
+source .travis.install
+sudo apt-get install -y --no-install-suggests --no-install-recommends \
+    python3-dev python3-numpy python3-pip
+sudo pip3 install --upgrade pip
+sudo pip3 install auditwheel==1.5 setuptools twine
