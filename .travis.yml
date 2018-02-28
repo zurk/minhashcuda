@@ -15,8 +15,13 @@ matrix:
       python: 3.4
       env:
         - CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-8.0
+      addons:
+        apt:
+          packages:
+            - autoconf
       install:
-        - . .python.install
+        - . .travis.install
+        - pip install numpy auditwheel==1.5 setuptools twine
         - python3 setup.py bdist_wheel
       script: skip
       deploy:
